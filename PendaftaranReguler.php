@@ -22,16 +22,14 @@ class PendaftaranReguler extends Pendaftaran {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Komentar: Implementasi wajib metode hitungTotalBiaya dari kelas induk
+    // Komentar: Overriding metode hitungTotalBiaya untuk jalur Reguler (Tarif standar murni)
     public function hitungTotalBiaya() {
-        // Logika akan diimplementasikan pada tahap berikutnya
         return $this->biayaPendaftaranDasar;
     }
 
     // Komentar: Implementasi wajib metode tampilkanInfoJalur dari kelas induk
     public function tampilkanInfoJalur() {
-        // Logika akan diimplementasikan pada tahap berikutnya
-        return "Jalur Pendaftaran: Reguler";
+        return "Jalur Pendaftaran: Reguler (Program Studi: " . $this->pilihanProdi . ", Kampus: " . $this->lokasiKampus . ")";
     }
 }
 ?>

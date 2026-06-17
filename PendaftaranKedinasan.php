@@ -22,16 +22,14 @@ class PendaftaranKedinasan extends Pendaftaran {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Komentar: Implementasi wajib metode hitungTotalBiaya dari kelas induk
+    // Komentar: Overriding metode hitungTotalBiaya untuk jalur Kedinasan (Surcharge tambahan 25%)
     public function hitungTotalBiaya() {
-        // Logika akan diimplementasikan pada tahap berikutnya
-        return $this->biayaPendaftaranDasar;
+        return $this->biayaPendaftaranDasar * 1.25;
     }
 
     // Komentar: Implementasi wajib metode tampilkanInfoJalur dari kelas induk
     public function tampilkanInfoJalur() {
-        // Logika akan diimplementasikan pada tahap berikutnya
-        return "Jalur Pendaftaran: Kedinasan";
+        return "Jalur Pendaftaran: Kedinasan (Sponsor: " . $this->instansiSponsor . ", No SK: " . $this->skIkatanDinas . ")";
     }
 }
 ?>

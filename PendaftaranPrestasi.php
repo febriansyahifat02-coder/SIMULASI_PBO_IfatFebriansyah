@@ -22,16 +22,14 @@ class PendaftaranPrestasi extends Pendaftaran {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Komentar: Implementasi wajib metode hitungTotalBiaya dari kelas induk
+    // Komentar: Overriding metode hitungTotalBiaya untuk jalur Prestasi (Potongan insentif Rp50.000)
     public function hitungTotalBiaya() {
-        // Logika akan diimplementasikan pada tahap berikutnya
-        return $this->biayaPendaftaranDasar;
+        return $this->biayaPendaftaranDasar - 50000;
     }
 
     // Komentar: Implementasi wajib metode tampilkanInfoJalur dari kelas induk
     public function tampilkanInfoJalur() {
-        // Logika akan diimplementasikan pada tahap berikutnya
-        return "Jalur Pendaftaran: Prestasi";
+        return "Jalur Pendaftaran: Prestasi (" . $this->jenisPrestasi . " Tingkat " . $this->tingkatPrestasi . ")";
     }
 }
 ?>
